@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
+            this.scoreLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
+            this.resetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button0 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -46,14 +46,14 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // label3
+            // scoreLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(588, 159);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 25);
-            this.label3.TabIndex = 29;
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreLabel.Location = new System.Drawing.Point(588, 159);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(0, 25);
+            this.scoreLabel.TabIndex = 29;
             // 
             // label2
             // 
@@ -65,14 +65,15 @@
             this.label2.TabIndex = 28;
             this.label2.Text = "Total Score:";
             // 
-            // button11
+            // resetButton
             // 
-            this.button11.Location = new System.Drawing.Point(505, 191);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(138, 39);
-            this.button11.TabIndex = 27;
-            this.button11.Text = "Reset Game";
-            this.button11.UseVisualStyleBackColor = true;
+            this.resetButton.Location = new System.Drawing.Point(505, 191);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(138, 39);
+            this.resetButton.TabIndex = 27;
+            this.resetButton.Text = "Reset Game";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // label1
             // 
@@ -80,7 +81,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(361, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(399, 39);
+            this.label1.Size = new System.Drawing.Size(382, 38);
             this.label1.TabIndex = 26;
             this.label1.Text = "Bowling Score Calculator";
             // 
@@ -208,9 +209,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1307, 622);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button0);
             this.Controls.Add(this.button10);
@@ -232,9 +233,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button button10;

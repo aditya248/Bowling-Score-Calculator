@@ -40,5 +40,37 @@ namespace Bowling_Score_Calculator
             int number = Int32.Parse(((Button)sender).Text);
 
         }
+
+        /// <summary>
+        /// Enables/Disables bowling score buttons so user is unable to score more than 10.
+        /// </summary>
+        /// <param name="enable"> true if enable all</param>
+        /// <param name="num">value 10 to enable all and value of 1st throw of the round to disable</param>
+        private void bowlingScoreButtonState(bool enable, int num)
+        {
+            int x = 11 - num;
+            for (int i = x; i <= 10; i++)
+            {
+                Control[] buttons = this.Controls.Find(String.Format("button{0}", i), false);
+                Button btn = (buttons[0] as Button);
+                btn.Enabled = enable;
+            }
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            score = 0;
+            frame = 1;
+            throws = 20;
+            spareCount = 0;
+            spare = false;
+            extraRound = true;
+            isStrike = false;
+            strike = new List<Strike>();
+            richTextBox1.Text = "";
+            scoreLabel.Text = "";
+            bowlingScoreButtonState(true, 10);
+
+        }
     }
 }
