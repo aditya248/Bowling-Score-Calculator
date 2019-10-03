@@ -19,7 +19,7 @@ namespace Bowling_Score_Calculator
         int throws = 20; //No. of throws in a game of bowling.
         bool spare = false; // True if spare.
         int spareCount = 0; // Store the extra point for spare.
-        bool extraRound = true;// Allows to give 2 or 1 extra throws depending on strike or spare.
+        bool extraThrow = true;// Allows to give 2 or 1 extra throws depending on strike or spare.
         bool isStrike = false; // True if strike
         List<Strike> strike = new List<Strike>(); // Stores extra points for strike
 
@@ -53,7 +53,7 @@ namespace Bowling_Score_Calculator
             throws = 20;
             spareCount = 0;
             spare = false;
-            extraRound = true;
+            extraThrow = true;
             isStrike = false;
             strike = new List<Strike>();
             richTextBox1.Text = "";
@@ -92,12 +92,110 @@ namespace Bowling_Score_Calculator
         {
             if (throws != 0) //Check if any throws are left.
             {
+                //Check if frame's first throw
+                if (throws % 2 == 0)
+                {
+                    //Frame number, reduce throw, increase score and disable bowling score.
+                    richTextBox1.Text += "\nFrame " + frame + ": " + number;
+                    throws--;
+                    score += number;
+                    bowlingScoreButtonState(false, number);
 
+                    //isStrike true if it was strike on previous throw.
+                    if (isStrike)
+                    {
+                        int remove = -1;
+                        for (int i = 0; i < strike.Count; i++)
+                        {
+                            if (strike[i].point1 == -1)
+                            {
+                                strike[i].point1 = number;
+                                score += strike[i].point1;
+                                break;
+                            }
+                            if (strike[i].point2 == -1)
+                            {
+                                strike[i].point2 = number;
+                                score += strike[i].point2;
+                                remove = i;
+                            }
+
+                        }
+                        if (remove > -1)
+                        {
+                            //Remove the strike after extra points are added.
+                            strike.RemoveAt(remove);
+                            remove = -1;
+                        }
+                    }
+
+                    //Checks for spare
+                    if (spare)
+                    {
+                        score += number;
+                        spare = false;
+                    }
+                    spareCount = number;
+
+                    // If strike
+                    if (number == 10)
+                    {
+                        //Cancel next throw , add strike stroage to list, 
+                        throws--;
+                        richTextBox1.Text += "      Score: " + score;
+                        bowlingScoreButtonState(true, 10);
+                        isStrike = true;
+                        Strike Strike = new Strike();
+                        strike.Add(Strike);
+                        frame++;
+                        // Check if there is strike on last frame
+                        if (throws == 0 && extraThrow)
+                        {
+                            // Get two extra throws.
+                            throws = throws + 2;
+                            extraThrow = false;
+                        }
+                    }
+                }
+                else
+                {
+                    richTextBox1.Text += extraThrow ? "," + number : "\nExtra Throw: " + number;
+                    throws--;
+                    frame++;
+                    score += number;
+                    richTextBox1.Text += "      Score: " + score;
+                    bowlingScoreButtonState(true, 10);
+                    spareCount += number;
+
+                    //If spare
+                    if (spareCount == 10)
+                    {
+                        spare = true;
+                        //Check if there is spare on last frame.
+                        if (throws == 0 && extraThrow)
+                        {
+                            //Get extra throw
+                            extraThrow = false;
+                            throws = throws + 1;
+                        }
+                    }
+
+                    if (isStrike)
+                    {
+                        score += number;
+                        strike.RemoveAt(strike.Count - 1);
+                        isStrike = false;
+                    }
+
+                }
             }
             else
             {
                 endLabel.Text = "Game Ended! Click Reset Game to play game.";
             }
+
+            //Update score label
+            scoreLabel.Text = score.ToString();
         }
 
         #endregion Game Logic
