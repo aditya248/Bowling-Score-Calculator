@@ -31,6 +31,14 @@ namespace Bowling_Score_Calculator
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Click event handler for bowling score
+        /// </summary>
+        /// <param name="number">Bowling score</param>
+        public void number_Click(object sender, EventArgs e)
+        {
+            int number = Int32.Parse(((Button)sender).Text);
 
+        }
     }
 }
