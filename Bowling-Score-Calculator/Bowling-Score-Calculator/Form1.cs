@@ -189,7 +189,7 @@ namespace Bowling_Score_Calculator
 
                 }
             }
-            else
+            if(throws <= 0)
             {
                 endLabel.Text = "Game Ended! Click Reset Game to play game.";
             }
