@@ -30,7 +30,7 @@ namespace Bowling_Score_Calculator
         {
             InitializeComponent();
         }
-
+        #region Event Methods
         /// <summary>
         /// Click event handler for bowling score
         /// </summary>
@@ -38,25 +38,14 @@ namespace Bowling_Score_Calculator
         public void number_Click(object sender, EventArgs e)
         {
             int number = Int32.Parse(((Button)sender).Text);
-
+            BowlingScoreCalculator(number);
         }
 
         /// <summary>
-        /// Enables/Disables bowling score buttons so user is unable to score more than 10.
+        /// Resets the Game
         /// </summary>
-        /// <param name="enable"> true if enable all</param>
-        /// <param name="num">value 10 to enable all and value of 1st throw of the round to disable</param>
-        private void bowlingScoreButtonState(bool enable, int num)
-        {
-            int x = 11 - num;
-            for (int i = x; i <= 10; i++)
-            {
-                Control[] buttons = this.Controls.Find(String.Format("button{0}", i), false);
-                Button btn = (buttons[0] as Button);
-                btn.Enabled = enable;
-            }
-        }
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resetButton_Click(object sender, EventArgs e)
         {
             score = 0;
@@ -72,5 +61,37 @@ namespace Bowling_Score_Calculator
             bowlingScoreButtonState(true, 10);
 
         }
+        #endregion Event Methods
+
+        #region Helper Methods
+        /// <summary>
+        /// Enables/Disables bowling score buttons so user is unable to score more than 10.
+        /// </summary>
+        /// <param name="enable"> true if enable all</param>
+        /// <param name="num">value 10 to enable all and value of 1st throw of the round to disable</param>
+        private void bowlingScoreButtonState(bool enable, int num)
+        {
+            int x = 11 - num;
+            for (int i = x; i <= 10; i++)
+            {
+                Control[] buttons = this.Controls.Find(String.Format("button{0}", i), false);
+                Button btn = (buttons[0] as Button);
+                btn.Enabled = enable;
+            }
+        }
+        #endregion Helper Methods
+
+        #region Game Logic
+
+        /// <summary>
+        /// Calculate the bowling score
+        /// </summary>
+        /// <param name="number"></param>
+        private void BowlingScoreCalculator(int number)
+        {
+
+        }
+
+        #endregion Game Logic
     }
 }
