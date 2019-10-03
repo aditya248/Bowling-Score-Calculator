@@ -58,6 +58,7 @@ namespace Bowling_Score_Calculator
             strike = new List<Strike>();
             richTextBox1.Text = "";
             scoreLabel.Text = "";
+            endLabel.Text = "";
             bowlingScoreButtonState(true, 10);
 
         }
@@ -89,7 +90,14 @@ namespace Bowling_Score_Calculator
         /// <param name="number"></param>
         private void BowlingScoreCalculator(int number)
         {
+            if (throws != 0) //Check if any throws are left.
+            {
 
+            }
+            else
+            {
+                endLabel.Text = "Game Ended! Click Reset Game to play game.";
+            }
         }
 
         #endregion Game Logic

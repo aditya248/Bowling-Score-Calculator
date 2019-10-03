@@ -44,6 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.endLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // scoreLabel
@@ -197,17 +198,28 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(377, 236);
+            this.richTextBox1.Location = new System.Drawing.Point(377, 282);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(371, 374);
+            this.richTextBox1.Size = new System.Drawing.Size(371, 397);
             this.richTextBox1.TabIndex = 30;
             this.richTextBox1.Text = "";
+            // 
+            // endLabel
+            // 
+            this.endLabel.AutoSize = true;
+            this.endLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endLabel.ForeColor = System.Drawing.Color.Red;
+            this.endLabel.Location = new System.Drawing.Point(464, 245);
+            this.endLabel.Name = "endLabel";
+            this.endLabel.Size = new System.Drawing.Size(0, 25);
+            this.endLabel.TabIndex = 31;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1307, 622);
+            this.ClientSize = new System.Drawing.Size(1113, 684);
+            this.Controls.Add(this.endLabel);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.label2);
