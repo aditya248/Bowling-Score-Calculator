@@ -96,7 +96,7 @@ namespace Bowling_Score_Calculator
                 if (throws % 2 == 0)
                 {
                     //Frame number, reduce throw, increase score and disable bowling score.
-                    richTextBox1.Text += "\nFrame " + frame + ": " + number;
+                    richTextBox1.Text += extraThrow ? "\nFrame " + frame + ": " + number : "\nExtra Frame " + ": " + number;
                     throws--;
                     score += number;
                     bowlingScoreButtonState(false, number);
