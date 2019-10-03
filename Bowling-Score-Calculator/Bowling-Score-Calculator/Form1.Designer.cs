@@ -209,7 +209,7 @@
             this.endLabel.AutoSize = true;
             this.endLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endLabel.ForeColor = System.Drawing.Color.Red;
-            this.endLabel.Location = new System.Drawing.Point(464, 245);
+            this.endLabel.Location = new System.Drawing.Point(502, 246);
             this.endLabel.Name = "endLabel";
             this.endLabel.Size = new System.Drawing.Size(0, 25);
             this.endLabel.TabIndex = 31;
@@ -261,6 +261,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label endLabel;
     }
 }
 
